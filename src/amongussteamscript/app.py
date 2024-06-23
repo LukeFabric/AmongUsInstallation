@@ -8,11 +8,14 @@ import pyautogui, time
 def runPowershell(script):
     POWERSHELL_PATH = "C:\system32\WindowsPowershell\v5.1\powershell.exe"
     commandline_options = [POWERSHELL_PATH, script]
-    process_result = subprocess.run(stdout = subprocess.PIPE, stderr = subprocess.PIPE, universal_newlines = True)
+    process_result = subprocess.run(commandline_options, stdout = subprocess.PIPE, stderr = subprocess.PIPE, universal_newlines = True)
     print(process_result.returncode)
 def main():
     screenWidth, screenHeight = pyautogui.size()
-    
+    pyautogui.alert(text='Don\'t touch your keyboard or mouse.', title='', button='OK') 
+    pyautogui.keyDown("win")
+    pyautogui.press("up")
+    pyautogui.keyUp("win")
     pyautogui.click(x=197, y=58)
     time.sleep(1)
     pyautogui.click(x=100,y=250)
