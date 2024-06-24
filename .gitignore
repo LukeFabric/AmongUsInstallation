@@ -26,6 +26,7 @@ __pycache__/
 Network Trash Folder
 Temporary Items
 .apdisk
+.venv
 
 # C extensions
 *.so
