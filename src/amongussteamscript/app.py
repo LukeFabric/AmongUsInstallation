@@ -12,12 +12,12 @@ def runPowershell(script):
     print(process_result.returncode)
 def main():
     screenWidth, screenHeight = pyautogui.size()
+    pyautogui.alert(text='Don\'t touch your keyboard or mouse.', title='', button='OK') 
     abspath = os.path.abspath(__file__)
     dname = os.path.dirname(abspath)
     os.chdir(dname)
     runPowershell(os.getcwd() + '\\resources\\fixBlackScreen.ps1')
     #'C:\\AmongUsInstallation\\src\\amongussteamscript\\resources\\fixBlackScreen.ps1'
-    pyautogui.alert(text='Don\'t touch your keyboard or mouse.', title='', button='OK') 
     pyautogui.keyDown("win")
     pyautogui.press("up")
     pyautogui.keyUp("win")
@@ -36,4 +36,5 @@ def main():
     pyautogui.click(x=499, y=534)
     time.sleep(1)
     pyautogui.click(x=865, y=735)
-    #runPowershell(os.cwd() + '\\resources\\moveManifest.ps1')
+    time.sleep(30)
+    runPowershell(os.getcwd() + '\\resources\\moveManifest.ps1')
